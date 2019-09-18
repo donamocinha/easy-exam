@@ -1,0 +1,42 @@
+
+.mat-sidenav, .mat-sidenav-content {
+  padding: 24px;
+}
+
+.header { 
+
+  height: 150px;
+}
+
+.texto-usuario {
+  font-size: 40px;
+  padding-top: 30px;
+  font-weight: 400;
+  padding-right: 80%
+}
+
+.texto-data {
+  font-weight: 100;
+}
+
+.botao-ajuda {
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.infos-medico {
+border-bottom: 1px solid black;
+
+}
+
+.lista-opcoes {
+  padding-top: 40px;
+}
+
+.botao-lista:hover{
+    background-color:#d8d7d7;
+}

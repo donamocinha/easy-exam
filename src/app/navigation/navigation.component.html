@@ -1,0 +1,65 @@
+<mat-toolbar class="header" color="primary">
+    <mat-toolbar-row>
+       <h2 class= "texto-usuario">Olá, Usuario</h2>
+       <!-- <span class="glyphicon glyphicon-question-sign" ></span> -->
+       <mat-icon class="botao-ajuda">help_outline</mat-icon>
+    </mat-toolbar-row>
+    
+    <mat-toolbar-row>
+        <h4 class="texto-data"> Dia de hoje: 12/9</h4>
+    </mat-toolbar-row>
+    
+</mat-toolbar>
+  
+  <mat-sidenav-container >
+    <mat-sidenav mode="side" opened="true" >
+     <div class= "infos-medico">
+       <h2>Nome do Usuario</h2>
+       <h4> Medico</h4> 
+      </div>
+
+      <div class="lista-opcoes">
+          <mat-action-list>
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>home</mat-icon>
+                <span>Home</span>
+            </button>
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>account_box</mat-icon>
+                <span>Pacientes</span>
+            </button>
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>assignment</mat-icon>
+                <span>Exames</span>
+            </button>
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>add_circle</mat-icon>
+                <span>Realizar exame</span>
+            </button>    
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>check_circle</mat-icon>
+                <span>Resultados</span>
+            </button > 
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>assessment</mat-icon>
+                <span>Análises</span>
+            </button>   
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>settings_applications</mat-icon>
+                <span>Configurações</span>
+            </button>  
+            <button mat-list-item class="botao-lista">
+                <mat-icon matListIcon>exit_to_app</mat-icon>
+                <span>Sair</span>
+            </button>   
+          </mat-action-list>
+      </div>
+
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
