@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule, routing} from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -14,29 +14,26 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {LoginComponent} from "./login/login.component";
-import { TesteComponent } from './teste/teste.component';
 import { AlertComponent } from './alert/alert.component';
-import { GuardsComponent } from './guard/guards.component';
-import { HelpersComponent } from './helper/helpers.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ErrorInterceptor} from "./helper/error.interceptor";
+import {fakeBackendProvider} from "./helper/fake-backend";
+import {JwtInterceptor} from "./helper/jwt.interceptor";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    AppComponent,
     LoginComponent,
-    TesteComponent,
     AlertComponent,
-    GuardsComponent,
-    HelpersComponent,
     HomeComponent,
     RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -44,10 +41,21 @@ import { RegisterComponent } from './register/register.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule,
     ProgressSpinnerModule,
+    RouterModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    routing,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
