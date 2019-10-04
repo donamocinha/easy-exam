@@ -35,4 +35,9 @@ export class AlertService {
   getMessage(): Observable<any> {
     return this.subject.asObservable();
   }
+
+  clear() {
+    // clear by calling subject.next() without parameters
+    this.subject.next();
+  }
 }
