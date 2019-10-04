@@ -14,7 +14,7 @@
   <mat-sidenav-container >
     <mat-sidenav mode="side" opened="true" >
      <div class= "infos-medico">
-       <h2>Nome do Usuario</h2>
+       <h2>Nome do Usuario: {{currentUserName}}</h2>
        <h4> Medico</h4>
       </div>
 
@@ -48,9 +48,9 @@
                 <mat-icon matListIcon>settings_applications</mat-icon>
                 <span>Configurações</span>
             </button>
-            <button mat-list-item class="botao-lista">
+            <button mat-list-item class="botao-lista nav-item nav-link" (click)="logout()">
                 <mat-icon matListIcon>exit_to_app</mat-icon>
-                <span>Sair</span>
+                <span routerLink="/login">Sair</span>
             </button>
           </mat-action-list>
       </div>
