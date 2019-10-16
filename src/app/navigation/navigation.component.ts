@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -22,12 +23,25 @@ export class NavigationComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, private authenticationService: AuthenticationService,
-              private router: Router) {
+            private userService: UserService,  private router: Router) {
   }
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then((b) => {
+      window.location.reload();
+    });
   }
+
+    update() {
+      this.authenticationService.currentUser.toPromise().then((_user) => {
+        this.userService.update(_user).toPromise().then((obj) => {
+          this.router.navigate(['/']).then((b) => {
+            window.location.reload();
+          });
+        })
+      })
+    
+    }
 
 }
