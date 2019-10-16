@@ -23,6 +23,7 @@ import {ErrorInterceptor} from "./helper/error.interceptor";
 import {fakeBackendProvider} from "./helper/fake-backend";
 import {JwtInterceptor} from "./helper/jwt.interceptor";
 import {RouterModule} from "@angular/router";
+import {ConfigComponent} from "./config/config.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {RouterModule} from "@angular/router";
     AlertComponent,
     HomeComponent,
     RegisterComponent,
+    ConfigComponent,
   ],
   imports: [
     BrowserModule,
