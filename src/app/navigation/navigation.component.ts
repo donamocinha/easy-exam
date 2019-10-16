@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
+import {User} from "../model/user";
 
 @Component({
   selector: 'app-navigation',
@@ -12,8 +13,8 @@ import {Router} from "@angular/router";
 })
 export class NavigationComponent {
 
-  @Input('currentUserName')
-  currentUserName: string = '';
+  @Input('currentUser')
+  currentUser: User;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -23,6 +24,14 @@ export class NavigationComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private authenticationService: AuthenticationService,
               private router: Router) {
+  }
+
+
+  home() {
+    this.router.navigate(['/']);
+  }
+  config() {
+    this.router.navigate(['/config']);
   }
 
   logout() {

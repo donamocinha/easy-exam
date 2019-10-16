@@ -1,6 +1,6 @@
 <mat-toolbar class="header" color="primary">
     <mat-toolbar-row>
-       <h2 class= "texto-usuario">Olá, {{currentUserName}}</h2>
+       <h2 class= "texto-usuario">Olá, {{currentUser.firstName}}</h2>
        <!-- <span class="glyphicon glyphicon-question-sign" ></span> -->
        <mat-icon class="botao-ajuda">help_outline</mat-icon>
     </mat-toolbar-row>
@@ -14,13 +14,13 @@
   <mat-sidenav-container >
     <mat-sidenav mode="side" opened="true" >
      <div class= "infos-medico">
-       <h2>Nome do Usuario: {{currentUserName}}</h2>
+       <h2>Nome do Usuario: {{currentUser.firstName}}</h2>
        <h4> Medico</h4>
       </div>
 
       <div class="lista-opcoes">
           <mat-action-list>
-            <button mat-list-item class="botao-lista">
+            <button mat-list-item class="botao-lista" (click)="home()">
                 <mat-icon matListIcon>home</mat-icon>
                 <span>Home</span>
             </button>
@@ -44,7 +44,7 @@
                 <mat-icon matListIcon>assessment</mat-icon>
                 <span>Análises</span>
             </button>
-            <button mat-list-item class="botao-lista">
+            <button mat-list-item class="botao-lista" (click)="config()">
                 <mat-icon matListIcon>settings_applications</mat-icon>
                 <span>Configurações</span>
             </button>
