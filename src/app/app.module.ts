@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {LoginComponent} from "./login/login.component";
 import { AlertComponent } from './alert/alert.component';
@@ -45,6 +46,7 @@ import {ConfigComponent} from "./config/config.component";
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatTableModule,
     ProgressSpinnerModule,
     RouterModule,
     ReactiveFormsModule,

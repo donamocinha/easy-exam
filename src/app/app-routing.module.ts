@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'config', component: ConfigComponent },
+  { path: 'patient', loadChildren: './patient/patient.module#PatientModule'},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
