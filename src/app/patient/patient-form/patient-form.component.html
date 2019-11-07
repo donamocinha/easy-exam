@@ -1,0 +1,40 @@
+<h2>Novo Paciente</h2>
+
+<div class="example-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput placeholder="Nome">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput placeholder="Data de Nascimento">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Peso</mat-label>
+    <input matInput placeholder="Peso">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Altura</mat-label>
+    <input matInput placeholder="Altura">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Sexo</mat-label>
+    <mat-select placeholder="Select">
+      <mat-option value="masculino">Masculino</mat-option>
+      <mat-option value="feminino">Feminino</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+  <button mat-raised-button color="accent" (click)="save()">Salvar</button>
+</div>
