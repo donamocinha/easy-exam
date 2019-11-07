@@ -35,8 +35,11 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit() {
     this.configForm = this.formBuilder.group({
-      firstName: [this.currentUser.firstName, Validators.required],
-      lastName: [this.currentUser.lastName, Validators.required],
+      name: [this.currentUser.name, Validators.required],
+      username: [this.currentUser.username, Validators.required], //username é o email 
+      password: [this.currentUser.password, Validators.required],
+      crm: [this.currentUser.crm, Validators.required],
+      doctorType: [this.currentUser.doctorType, Validators.required],
     });
   }
 
@@ -57,8 +60,11 @@ export class ConfigComponent implements OnInit {
       return;
     }
 
-    this.currentUser.firstName = this.configForm.value.firstName;
-    this.currentUser.lastName = this.configForm.value.lastName;
+    this.currentUser.name = this.configForm.value.name;
+    this.currentUser.username = this.configForm.value.username; //username é o email
+    this.currentUser.password = this.configForm.value.password;
+    this.currentUser.crm = this.configForm.value.crm;
+    this.currentUser.doctorType = this.configForm.value.doctorType;
     this.userService.update(this.currentUser)
       .subscribe(
         data => {

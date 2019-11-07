@@ -1,8 +1,9 @@
 export class User {
   id: number;
-  username: string;
+  username: string; //username é o email
   password: string;
-  firstName: string;
-  lastName: string;
+  name: string;
+  crm: string;
+  doctorType: string;
   token: string;
 }
