@@ -5,7 +5,7 @@ import {AuthenticationService} from "../services/authentication.service";
 import {UserService} from "../services/user.service";
 import {first} from "rxjs/operators";
 
-export interface PeriodicElement {
+export interface HomeFeed {
   activity: string;
   info: string;
   updated_by: string;
@@ -14,7 +14,7 @@ export interface PeriodicElement {
 
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: HomeFeed[] = [
   { activity: 'Novo paciente cadastrado', info: 'A paciente Alice foi cadastrada', updated_by: 'Rubi', doctorType: 'Médico', updated_at: '15/11/2019' },
   { activity: 'Novo paciente cadastrado', info: 'A paciente Sophia foi cadastrada', updated_by: 'Julio', doctorType: 'Médico e Pesquisador', updated_at: '13/11/2019' },
   { activity: 'Novo paciente cadastrado', info: 'O paciente Miguel foi cadastrado', updated_by: 'Daniela', doctorType: 'Médico', updated_at: '12/11/2019' },
