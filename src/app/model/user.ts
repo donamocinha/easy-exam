@@ -1,8 +1,11 @@
+import {Validators} from "@angular/forms";
+
 export class User {
   id: number;
   username: string;
   password: string;
-  firstName: string;
-  lastName: string;
-  token: string;
+  name: string;
+  crm: string;
+  doctorType: string;
+  //token: string;
 }

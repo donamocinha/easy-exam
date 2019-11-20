@@ -13,7 +13,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
         />
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback erros">
-          <div *ngIf="f.name.errors.required">Name is required</div>
+          <div *ngIf="f.name.errors.required">Seu nome é obrigatório.</div>
         </div>
       </div>
       <div class="form-group">
@@ -30,7 +30,7 @@
           *ngIf="submitted && f.username.errors"
           class="invalid-feedback erros"
         >
-          <div *ngIf="f.username.errors.required">E-mail is required</div>
+          <div *ngIf="f.username.errors.required">E-mail é obrigatório.</div>
         </div>
       </div>
       <div class="form-group">
@@ -47,9 +47,9 @@
           *ngIf="submitted && f.password.errors"
           class="invalid-feedback erros"
         >
-          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.required">Senha é obrigatória.</div>
           <div *ngIf="f.password.errors.minlength">
-            Password must be at least 6 characters
+            Sua senha deve ter ao menos 6 caracteres.
           </div>
         </div>
       </div>

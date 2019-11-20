@@ -1,6 +1,6 @@
 <mat-toolbar class="header" color="primary">
     <mat-toolbar-row>
-       <h2 class= "texto-usuario">Olá, {{currentUser.firstName}}</h2>
+       <h2 class= "texto-usuario">Olá, {{currentUser.name}}!</h2>
        <!-- <span class="glyphicon glyphicon-question-sign" ></span> -->
        <mat-icon class="botao-ajuda">help_outline</mat-icon>
     </mat-toolbar-row>
@@ -14,7 +14,7 @@
   <mat-sidenav-container >
     <mat-sidenav mode="side" opened="true" >
      <div class= "infos-medico">
-       <h2>Nome do Usuario: {{currentUser.firstName}}</h2>
+       <h2>Nome do Usuario: {{currentUser.name}}</h2>
        <h4> Medico</h4>
       </div>
 
