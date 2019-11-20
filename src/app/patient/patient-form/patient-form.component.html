@@ -1,40 +1,48 @@
 <h2>Novo Paciente</h2>
 
-<div class="example-container">
-  <mat-form-field appearance="outline">
-    <mat-label>Nome</mat-label>
-    <input matInput placeholder="Nome">
-  </mat-form-field>
+<form [formGroup]="newPatientForm" (ngSubmit)="savePatient()">
 
-  <mat-form-field appearance="outline">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Email">
-  </mat-form-field>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput placeholder="Nome" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Nascimento</mat-label>
+      <input type="text" matInput placeholder="Data de Nascimento" formControlName="birthday">
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Data de Nascimento</mat-label>
-    <input matInput placeholder="Data de Nascimento">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Peso</mat-label>
-    <input matInput placeholder="Peso">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Altura</mat-label>
-    <input matInput placeholder="Altura">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Sexo</mat-label>
-    <mat-select placeholder="Select">
-      <mat-option value="masculino">Masculino</mat-option>
-      <mat-option value="feminino">Feminino</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-
-<div>
-  <button mat-raised-button color="accent" (click)="save()">Salvar</button>
-</div>
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input type="text" matInput placeholder="CPF" formControlName="cpf">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Peso</mat-label>
+      <input type="number" matInput placeholder="Peso" formControlName="weight">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Altura</mat-label>
+      <input type="number" matInput placeholder="Altura" formControlName="height">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Sexo</mat-label>
+      <mat-select type="text" placeholder="Select" formControlName="sex">
+        <mat-option value="masculino">Masculino</mat-option>
+        <mat-option value="feminino">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div>
+    <button [disabled]="!this.newPatientForm.valid" type="submit" mat-raised-button color="accent">Salvar</button>
+  </div>
+</form>
