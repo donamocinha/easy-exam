@@ -24,10 +24,14 @@
 mat-card {
   margin: auto;
   max-width: 300px;
-  height: 300px;
+  height: 600px;
 }
 
 .erros {
   margin-bottom: 15px;
   color: red;
+}
+
+.form-group {
+  padding-bottom: 15px;
 }
