@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
-interface Patient  {
+export interface Patient  {
   id?: string; 
   birthday: string;
   email: string;
