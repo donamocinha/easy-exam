@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatientService } from 'src/app/services/patient.service';
+import { Router } from '@angular/router';
 
 
 export interface Patient  {
@@ -24,7 +25,8 @@ export class PatientFormComponent implements OnInit {
   newPatientForm: FormGroup
   constructor(
     private formBuilder: FormBuilder,
-    private service: PatientService
+    private service: PatientService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -42,11 +44,13 @@ export class PatientFormComponent implements OnInit {
   savePatient() {
     console.log(this.newPatientForm.value);
 
-    return this.service.postPatient(this.newPatientForm.value).subscribe(
-      data => console.log("Patient created!"),
+    this.service.postPatient(this.newPatientForm.value).subscribe(
+      data => {
+        this.router.navigate(['/patient']);
+     },
       error => console.log("error on savePatient", error)
-    )
-
+    );
+    
     
   }
 

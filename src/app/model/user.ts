@@ -7,5 +7,5 @@ export class User {
   name: string;
   crm: string;
   doctorType: string;
-  //token: string;
+  token: string;
 }
