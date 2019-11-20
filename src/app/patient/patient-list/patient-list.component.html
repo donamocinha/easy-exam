@@ -1,5 +1,7 @@
-
-<button mat-raised-button color="accent" routerLink="/patient/new">Novo</button>
+<div class="pacient-header">
+    <h2>Pacientes</h2>
+    <button mat-raised-button color="accent" routerLink="/patient/new">Novo</button>
+</div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
