@@ -25,6 +25,9 @@ import {fakeBackendProvider} from "./helper/fake-backend";
 import {JwtInterceptor} from "./helper/jwt.interceptor";
 import {RouterModule} from "@angular/router";
 import {ConfigComponent} from "./config/config.component";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import {ConfigComponent} from "./config/config.component";
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatTableModule,
     ProgressSpinnerModule,
     RouterModule,

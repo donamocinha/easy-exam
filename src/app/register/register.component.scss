@@ -1,0 +1,33 @@
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
+
+.content {
+  margin-top: 50px;
+  text-align: center;
+  height: 200px;
+}
+
+mat-card {
+  margin: auto;
+  max-width: 300px;
+  height: 300px;
+}
+
+.erros {
+  margin-bottom: 15px;
+  color: red;
+}
