@@ -43,6 +43,6 @@
   </div>
   
   <div>
-    <button type="submit" mat-raised-button color="accent">Salvar</button>
+    <button [disabled]="!this.newPatientForm.valid" type="submit" mat-raised-button color="accent">Salvar</button>
   </div>
 </form>
