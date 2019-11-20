@@ -1,56 +1,132 @@
-<h2>Register</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label>Nome</label>
-    <input type="text" formControlName="name" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-      <div *ngIf="f.name.errors.required">Name is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>E-mail</label>
-    <input type="text" formControlName="username" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-      <div *ngIf="f.username.errors.required">E-mail is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Senha</label>
-    <input type="password" formControlName="password" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-      <div *ngIf="f.password.errors.required">Password is required</div>
-      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>CRM</label>
-    <input type="text" formControlName="crm" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.crm.errors }" />
-    <div *ngIf="submitted && f.crm.errors" class="invalid-feedback">
-      <div *ngIf="f.crm.errors.required">Seu CRM é obrigatório.</div>
-      <div *ngIf="f.crm.errors.minlength">Seu CRM deve conter 7 números</div>
-      <div *ngIf="f.crm.errors.maxlength">Seu CRM deve conter 7 números</div>
-      <div *ngIf="f.crm.errors.pattern">Seu CRM deve ser numérico.</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Atuação</label>
-    <select formControlName="doctorType" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.doctorType.errors }">
-      <option value="doctor">Médico</option>
-      <option value="doctor_researcher">Médico e Pesquisador</option>
-    </select>
-    <div *ngIf="submitted && f.doctorType.errors" class="invalid-feedback">
-      <div *ngIf="f.doctorType.errors.required">Sua atuação é obrigatória.</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary">Register</button>
-    <img *ngIf="loading" class="pl-3"
-      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-    <a routerLink="/login" class="btn btn-link">Cancel</a>
-  </div>
-</form>
+<div class="content">
+  <mat-card>
+    <h2>Registro</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <label>Nome</label>
+        </div>
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+        />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback erros">
+          <div *ngIf="f.name.errors.required">Seu nome é obrigatório.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label>E-Mail</label>
+        </div>
+        <input
+          type="text"
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+        />
+        <div
+          *ngIf="submitted && f.username.errors"
+          class="invalid-feedback erros"
+        >
+          <div *ngIf="f.username.errors.required">E-mail é obrigatório.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label>Senha</label>
+        </div>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <div
+          *ngIf="submitted && f.password.errors"
+          class="invalid-feedback erros"
+        >
+          <div *ngIf="f.password.errors.required">Senha é obrigatória.</div>
+          <div *ngIf="f.password.errors.minlength">
+            Sua senha deve ter ao menos 6 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label>CRM</label>
+        </div>
+        <input
+          type="text"
+          formControlName="crm"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.crm.errors }"
+        />
+        <div *ngIf="submitted && f.crm.errors" class="invalid-feedback erros">
+          <div *ngIf="f.crm.errors.required">Seu CRM é obrigatório.</div>
+          <div *ngIf="f.crm.errors.minlength">
+            Seu CRM deve conter 7 números
+          </div>
+          <div *ngIf="f.crm.errors.maxlength">
+            Seu CRM deve conter 7 números
+          </div>
+          <div *ngIf="f.crm.errors.pattern">Seu CRM deve ser numérico.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label>Atuação</label>
+        </div>
+        <select
+          formControlName="doctorType"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.doctorType.errors }"
+        >
+          <option value="doctor">Médico</option>
+          <option value="doctor_researcher">Médico e Pesquisador</option>
+        </select>
+        <div
+          *ngIf="submitted && f.doctorType.errors"
+          class="invalid-feedback erros"
+        >
+          <div *ngIf="f.doctorType.errors.required">
+            Sua atuação é obrigatória.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          style="margin-top: 10px"
+          [disabled]="loading"
+          mat-raised-button
+          color="primary"
+        >
+          <mat-icon>done</mat-icon>
+          Registrar
+        </button>
+        <img
+          *ngIf="loading"
+          class="pl-3"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <br /><br /><br />
+        <img
+          *ngIf="loading"
+          class="pl-3"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <a routerLink="/login" class="btn btn-warning"
+          ><button
+            style="margin-top: 10px"
+            [disabled]="loading"
+            mat-raised-button
+          >
+            <mat-icon>clear</mat-icon>
+            Cancelar
+          </button></a
+        >
+      </div>
+    </form>
+  </mat-card>
+</div>

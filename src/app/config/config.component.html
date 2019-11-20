@@ -1,25 +1,88 @@
-<h2>Settings</h2>
+<h2>Configurações</h2>
+<div>
+  <mat-label>E-mail:</mat-label>
+  <mat-toolbar>
+    <span>{{currentUser.username}}</span>
+  </mat-toolbar>
+</div>
 <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label>First Name</label>
-    <input type="text" formControlName="firstName" class="form-control"
-           [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
-    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-      <div *ngIf="f.firstName.errors.required">First Name is required</div>
-    </div>
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="name" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Nome é necessário.</div>
+      </div>
+    </mat-form-field>
   </div>
-  <div class="form-group">
-    <label>Last Name</label>
-    <input type="text" formControlName="lastName" class="form-control"
-           [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"/>
-    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-    </div>
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" formControlName="password" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Senha é obrigatória./div>
+          <div *ngIf="f.password.errors.minlength">Senha deve ter 6 caracteres.</div>
+        </div>
+      </div>
+    </mat-form-field>
   </div>
+
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>CRM</mat-label>
+      <input matInput type="text" formControlName="crm" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+      <div *ngIf="submitted && f.crm.errors" class="invalid-feedback">
+        <div *ngIf="f.crm.errors.required">Seu CRM é obrigatório.</div>
+        <div *ngIf="f.crm.errors.minlength">Seu CRM deve conter 7 números</div>
+        <div *ngIf="f.crm.errors.maxlength">Seu CRM deve conter 7 números</div>
+        <div *ngIf="f.crm.errors.pattern">Seu CRM deve ser numérico.</div>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Atuação</mat-label>
+      <select matNativeControl formControlName="doctorType" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.doctorType.errors }">
+        <option value="doctor">Médico</option>
+        <option value="doctor_researcher">Médico e Pesquisador</option>
+      </select>
+      <div *ngIf="submitted && f.crm.errors" class="invalid-feedback">
+        <div *ngIf="f.crm.errors.required">Seu CRM é obrigatório.</div>
+        <div *ngIf="f.crm.errors.minlength">Seu CRM deve conter 7 números</div>
+        <div *ngIf="f.crm.errors.maxlength">Seu CRM deve conter 7 números</div>
+        <div *ngIf="f.crm.errors.pattern">Seu CRM deve ser numérico.</div>
+      </div>
+    </mat-form-field>
+  </div>
+
   <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary" (click)="onSubmit()">Done</button>
-    <img *ngIf="loading" class="pl-3"
-         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-    <a routerLink="/" class="btn btn-link">Cancel</a>
+    <button
+      style="margin-top: 10px; padding-right: 10px;"
+      [disabled]="loading"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+    >
+      <mat-icon>done</mat-icon>
+      Salvar
+    </button>
+    <img
+      *ngIf="loading"
+      class="pl-3"
+      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+    />
+    <a routerLink="/" class="btn btn-warning"
+    >
+      <button style="margin-top: 10px" [disabled]="loading" mat-raised-button>
+        <mat-icon>clear</mat-icon>
+        Cancelar
+      </button>
+    </a
+    >
   </div>
 </form>

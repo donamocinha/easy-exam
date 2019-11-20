@@ -61,8 +61,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return ok({
         id: user.id,
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        name: user.name,
+        crm: user.crm,
+        doctorType: user.doctorType,
         token: 'fake-jwt-token'
       })
     }
@@ -90,8 +91,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function update() {
       const user = body;
       let index = users.findIndex(data => data.id == user.id);
-      users[index].firstName =user.firstName;
-      users[index].lastName= user.lastName;
+      users[index].name =user.name;
+      users[index].password =user.password;
+      users[index].crm =user.crm;
+      users[index].doctorType =user.doctorType;
       localStorage.setItem('users', JSON.stringify(users));
       return ok();
     }

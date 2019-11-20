@@ -1,31 +1,35 @@
 <div class="pacient-header">
-    <h2>Pacientes</h2>
-    <button mat-raised-button color="accent" routerLink="/patient/new">Novo</button>
+  <h2>Pacientes</h2>
+
+  <button mat-raised-button color="accent" routerLink="/patient/new">
+    <mat-icon>add</mat-icon>
+    Novo
+  </button>
 </div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <th mat-header-cell *matHeaderCellDef> Nome</th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <th mat-header-cell *matHeaderCellDef> Email</th>
     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <ng-container matColumnDef="birthday">
-    <th mat-header-cell *matHeaderCellDef> Data de nascimento </th>
+    <th mat-header-cell *matHeaderCellDef> Data de nascimento</th>
     <td mat-cell *matCellDef="let element"> {{element.birthday}} </td>
   </ng-container>
 
   <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Peso </th>
+    <th mat-header-cell *matHeaderCellDef> Peso</th>
     <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
   </ng-container>
 
   <ng-container matColumnDef="height">
-    <th mat-header-cell *matHeaderCellDef> Altura </th>
+    <th mat-header-cell *matHeaderCellDef> Altura</th>
     <td mat-cell *matCellDef="let element"> {{element.height}} </td>
   </ng-container>
 
